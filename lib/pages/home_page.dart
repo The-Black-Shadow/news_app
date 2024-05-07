@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:news_app/widgets/news_tile.dart';
+import 'package:news_app/widgets/trending_widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,86 +21,101 @@ class _HomePageState extends State<HomePage> {
             style: Theme.of(context).textTheme.headlineLarge,
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Hottest News',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  const Spacer(),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('View All'),
-                  )
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    width: 300,
-                    //height: 280,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Theme.of(context).colorScheme.primaryContainer,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Hottest News',
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Theme.of(context).colorScheme.background,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          children: [
-                            Text(
-                              'Trending no. 1',
-                              style: Theme.of(context).textTheme.labelSmall,
-                            ),
-                            const Spacer(),
-                            Text(
-                              '2 days ago',
-                              style: Theme.of(context).textTheme.labelSmall,
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        const Row(
-                          children: [
-                            Flexible(
-                              child: Text(
-                                'Save water save save life is a best news.',
-                                style: TextStyle(fontSize: 24),
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 15,
-                              backgroundColor:
-                                  Theme.of(context).colorScheme.primary,
-                            ),
-                            const SizedBox(width: 8),
-                            const Text('Md Mehedi Hasan')
-                          ],
-                        )
-                      ],
-                    ),
+                    const Spacer(),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text('View All'),
+                    )
+                  ],
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      const SizedBox(height: 20),
+                      TrendingWidget(
+                          imageUrl:
+                              'https://images.prothomalo.com/prothomalo-bangla%2F2024-05%2F234e1d3f-0742-4733-888f-40a6a8299845%2Fus_russia.webp?rect=0%2C0%2C980%2C653&auto=format%2Ccompress&fmt=webp&format=webp&w=640&dpr=1.3',
+                          tag: 'Technology',
+                          date: DateTime.now(),
+                          title: 'The future of AI',
+                          author: 'John Doe'),
+                      TrendingWidget(
+                          imageUrl:
+                              'https://images.prothomalo.com/prothomalo-bangla%2F2024-05%2F6a0b91a7-0460-40fa-a54f-5b45be96e28d%2FP1_1.jpg?rect=0%2C0%2C1540%2C1027&auto=format%2Ccompress&fmt=webp&format=webp&w=300&dpr=1.3',
+                          tag: 'Technology',
+                          date: DateTime.now(),
+                          title: 'The future of AI',
+                          author: 'John Doe'),
+                      TrendingWidget(
+                          imageUrl:
+                              'https://images.prothomalo.com/prothomalo-bangla%2F2024-05%2F6a0b91a7-0460-40fa-a54f-5b45be96e28d%2FP1_1.jpg?rect=0%2C0%2C1540%2C1027&auto=format%2Ccompress&fmt=webp&format=webp&w=300&dpr=1.3',
+                          tag: 'Technology',
+                          date: DateTime.now(),
+                          title: 'The future of AI',
+                          author: 'John Doe'),
+                      TrendingWidget(
+                          imageUrl:
+                              'https://images.prothomalo.com/prothomalo-bangla%2F2024-05%2F6a0b91a7-0460-40fa-a54f-5b45be96e28d%2FP1_1.jpg?rect=0%2C0%2C1540%2C1027&auto=format%2Ccompress&fmt=webp&format=webp&w=300&dpr=1.3',
+                          tag: 'Technology',
+                          date: DateTime.now(),
+                          title: 'The future of AI',
+                          author: 'John Doe'),
+                    ],
                   ),
-                ],
-              )
-            ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Text(
+                      'News for you',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    const Spacer(),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text('View All'),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    NewsTile(
+                      imageUrl:
+                          'https://images.prothomalo.com/prothomalo-bangla%2F2024-05%2F234e1d3f-0742-4733-888f-40a6a8299845%2Fus_russia.webp?rect=0%2C0%2C980%2C653&auto=format%2Ccompress&fmt=webp&format=webp&w=640&dpr=1.3',
+                      author: 'Md Mehedi Hasan',
+                      title: 'US Russia',
+                      date: DateTime.now(),
+                    ),
+                    NewsTile(
+                      imageUrl:
+                          'https://images.prothomalo.com/prothomalo-bangla%2F2024-05%2F234e1d3f-0742-4733-888f-40a6a8299845%2Fus_russia.webp?rect=0%2C0%2C980%2C653&auto=format%2Ccompress&fmt=webp&format=webp&w=640&dpr=1.3',
+                      author: 'Md Mehedi Hasan',
+                      title: 'US Russia',
+                      date: DateTime.now(),
+                    ),
+                    NewsTile(
+                      imageUrl:
+                          'https://images.prothomalo.com/prothomalo-bangla%2F2024-05%2F234e1d3f-0742-4733-888f-40a6a8299845%2Fus_russia.webp?rect=0%2C0%2C980%2C653&auto=format%2Ccompress&fmt=webp&format=webp&w=640&dpr=1.3',
+                      author: 'Md Mehedi Hasan',
+                      title: 'US Russia',
+                      date: DateTime.now(),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ));
   }
