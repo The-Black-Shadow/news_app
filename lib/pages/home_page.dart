@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/widgets/news_tile.dart';
 import 'package:news_app/widgets/trending_widgets.dart';
@@ -19,6 +20,78 @@ class _HomePageState extends State<HomePage> {
           title: Text(
             'Newseekers',
             style: Theme.of(context).textTheme.headlineLarge,
+          ),
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                  width: 200,
+                  height: 70,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 10,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primaryContainer,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: 40,
+                        width: 40,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Center(
+                          child: Icon(
+                            size: 25,
+                            Icons.home,
+                            color: Theme.of(context).colorScheme.background,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 40,
+                        width: 40,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Center(
+                          child: Icon(
+                            size: 25,
+                            Icons.book,
+                            color: Theme.of(context).colorScheme.background,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 40,
+                        width: 40,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        child: Center(
+                          child: Icon(
+                            size: 25,
+                            Icons.settings,
+                            color: Theme.of(context).colorScheme.background,
+                          ),
+                        ),
+                      )
+                    ],
+                  )),
+            ],
           ),
         ),
         body: SingleChildScrollView(
